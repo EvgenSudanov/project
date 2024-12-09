@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание события</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .logo img {
+            width: 50px;
+        }
+
+        .event-form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        }
+
+        .event-form h1 {
+            margin-bottom: 20px;
+        }
+
+        .event-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .event-form input[type='text'],
+        .event-form select {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+
+        .event-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color .3s ease;
+        }
+
+        .event-form button:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+<header class="main-header">
+    <div class="logo"><img src="path/to/your/logo.png"></div>
+    <nav>
+        <ul>
+            <li><a href="#">Вход</a></li>
+            <li><a href="#">Регистрация</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="event-form">
+    <h1>Создание события</h1>
+    <form id="eventForm">
+        <label for="name">Название*</label>
+        <input type="text" id="name" required>
+
+        <label for="date">Дата*</label>
+        <input type="date" id="date" required>
+
+        <label for="location">Локации *</label>
+        <select id="location">
+            <option value="Рыбалка на Оке">Рыбалка на Оке</option>
+            <option value="Село Новоселки">Село Новоселки</option>
+        </select>
+
+        <label for="description">Описание</label>
+        <textarea id="description" rows="4" cols="60"></textarea>
+
+        <button type="submit">Присоединиться</button>
+    </form>
+</section>
+
+<script>
+    document.getElementById('eventForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // предотвращаем стандартное поведение формы
+
+        const formData = new FormData(this);
+        const nameValue = formData.get('name');
+        const dateValue = formData.get('date');
+        const locationValue = formData.get('location');
+        const descriptionValue = formData.get('description');
+
+        if (!nameValue || !dateValue || !locationValue) {
+            alert('Пожалуйста, заполните все обязательные поля.');
+            return;
+        }
+
+        console.log(`Вы создали событие:
+        Название: ${nameValue}
+        Дата: ${dateValue}
+        Локация: ${locationValue}
+        Описание: ${descriptionValue}`);
+    });
+</script>
+</body>
+</html>

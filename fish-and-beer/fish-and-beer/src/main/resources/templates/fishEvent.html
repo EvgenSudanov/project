@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Присоединяйтесь</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #F4F4F4;
+            padding: 1rem;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .actions button {
+            padding: .5rem 1rem;
+            border: none;
+            cursor: pointer;
+            background-color: #0A74E9;
+            color: white;
+            transition: background-color .3s ease;
+        }
+
+        .actions button:hover {
+            background-color: #0C8DFA;
+        }
+
+        .event-list {
+            display: grid;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .event {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .event h2 {
+            margin: 0;
+            padding: .5rem;
+            background-color: rgba(0, 0, 0, .5);
+            color: white;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .event p {
+            margin: 0;
+            padding: .5rem;
+            background-color: rgba(0, 0, 0, .5);
+            color: white;
+            text-align: center;
+            font-size: .8rem;
+        }
+
+        .event img {
+            width: 100%;
+            object-fit: cover;
+            filter: grayscale();
+            transition: filter .3s ease;
+        }
+
+        .event img:hover {
+            filter: none;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <nav>
+        <ul>
+            <li><a href="#">Вход</a></li>
+            <li><a href="#">Регистрация</a></li>
+        </ul>
+    </nav>
+    <div class="logo"><img src="./assets/logo.png" alt="Логотип"></div>
+    <div class="actions">
+        <button id="signInButton">Присоединиться</button>
+        <button id="createEventButton">Создать событие</button>
+        <button id="forumButton">Форум</button>
+    </div>
+</header>
+<main class="content">
+    <h1>Предстоящие мероприятия</h1>
+    <section class="event-list">
+        <article class="event">
+            <img src="./assets/rybalka_na_reke_Stariya.jpg" alt="Рыбалка на реке Старица">
+            <h2>Рыбалка на реке Старца</h2>
+            <p>Подробнее</p>
+        </article>
+        <article class="event">
+            <img src="./assets/rybalka_na_reke_Oka.jpg" alt="Рыбалка на реке Ока">
+            <h2>Рыбалка на реке Ока</h2>
+            <p>Подробнее</p>
+        </article>
+        <article class="event">
+            <img src="./assets/rybalka_na_ozere_Staritsa_Marinka.jpg" alt="Рыбалка на озере Старица Маринка">
+            <h2>Рыбалка на озере Старца Маришка</h2>
+            <p>Подробнее</p>
+        </article>
+    </section>
+</main>
+<script>
+    document.getElementById('signInButton').addEventListener('click', () => {
+        alert('Отлично! Добро пожаловать!');
+    });
+
+    document.getElementById('createEventButton').addEventListener('click', () => {
+        window.location.href = 'create-event.html';
+    });
+
+    document.getElementById('forumButton').addEventListener('click', () => {
+        window.location.href = 'forum.html';
+    });
+</script>
+</body>
+</html>
